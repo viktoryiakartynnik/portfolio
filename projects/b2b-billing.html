@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2B Billing — Viktoryia Kartynnik</title>
+<meta name="description" content="Designing a transparent billing interface for SmallTalk2Me that cut support inquiries by 40%.">
+<link rel="stylesheet" href="../css/project.css?v=5">
+</head>
+<body>
+<div class="project-page">
+<nav class="site-nav">
+  <a class="nav-back" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+  <span class="nav-name">Viktoryia Kartynnik</span>
+</nav>
+
+<header class="hero">
+  <span class="hero-tag">SmallTalk2Me</span>
+  <h1>B2B Billing</h1>
+  <p class="hero-sub">Redesigning billing from a source of confusion into the clearest page in the product — reducing support inquiries by 40%.</p>
+</header>
+<div class="meta-strip">
+  <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Product Designer</span></div>
+  <div class="meta-item"><span class="meta-label">Timeline</span><span class="meta-value">4 weeks</span></div>
+  <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">Web (B2B dashboard)</span></div>
+  <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Figma, Notion</span></div>
+</div>
+<div class="content">
+
+  <div class="section">
+    <div class="section-num">01 — Overview</div>
+    <h2>Billing as a product experience, not a back-office screen</h2>
+    <p>SmallTalk2Me is an AI-powered English proficiency tool used by companies to prepare employees for professional communication. B2B clients purchase test packages — sets of English assessments distributed across a team — and manage them through a company dashboard.</p>
+    <p>The billing section of that dashboard had a problem: it was generating a disproportionate share of support tickets. Clients couldn't understand their current balance, couldn't reconcile past charges, and were regularly confused about when they'd run out of tests. Billing had become a trust issue.</p>
+  </div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/1e2a513a-6a69-4f80-aebe-7f43f8c1806c/11120/w=1920,quality=90,fit=scale-down" alt="Original billing page — cluttered and unclear" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Original billing page — cluttered and unclear</div>
+</div>
+
+  <div class="section">
+    <div class="section-num">02 — Problem</div>
+    <h2>Three questions clients couldn't answer themselves</h2>
+    <p>Through support log analysis and three client interviews, I identified the questions that were generating the most tickets:</p>
+    <ul>
+      <li><strong>"How many tests do I have left?"</strong> — The remaining balance wasn't surfaced at the page level; users had to calculate it from a transaction table.</li>
+      <li><strong>"When does my current package expire?"</strong> — Usage period information existed but wasn't legible — buried in fine print, formatted as raw timestamps.</li>
+      <li><strong>"Why is my balance lower than expected?"</strong> — There was no distinction between expected usage and debt from overages. Clients couldn't tell if they were over-spending or if the system had an error.</li>
+    </ul>
+    <div class="callout">
+      The goal wasn't to redesign billing for its own sake. It was to make these three questions answerable at a glance — before the user even forms them.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">03 — Process</div>
+    <h2>Competitive analysis, wireframes, and real users</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <strong>Competitive audit</strong>
+          <p>Reviewed billing UX across six B2B SaaS products (Notion, Linear, Intercom, Loom, Figma, Slack). Documented how each handled balance display, usage periods, overage states, and transaction history.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <strong>Information hierarchy mapping</strong>
+          <p>Mapped every data point on the billing page against the three key user questions. Anything that didn't answer one of those questions was either moved to a secondary view or removed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <strong>Wireframe + prototype in Figma</strong>
+          <p>Built three wireframe concepts with different hierarchy approaches. The selected direction leads with a balance card (current tests remaining, usage period, overage status) before the transaction table.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <strong>Usability testing</strong>
+          <p>Tested with two existing B2B clients via Figma prototype. Asked them to answer the three questions using the new interface. Both answered all three correctly within 15 seconds — without guidance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/4015a193-1556-4ba7-b601-8d1e9ca1c042/Screenshot_2025-01-07_at_4.52.06_PM_1/w=1920,quality=90,fit=scale-down" alt="Balance card — tests remaining, period, overage" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Balance card — tests remaining, period, overage</div>
+</div><div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/f08c395c-ce3e-4b47-8427-e9873c369bda/Desktop_-_145_1/w=1920,quality=90,fit=scale-down" alt="Transaction history — redesigned" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Transaction history — redesigned</div>
+</div>
+
+  <div class="section">
+    <div class="section-num">04 — Solution</div>
+    <h2>Three questions, one screen</h2>
+    <p>The redesigned billing page has a clear two-layer structure:</p>
+    <ul>
+      <li><strong>Balance card (top)</strong> — Current test balance displayed as a large number, usage period shown as a human-readable date range, overage highlighted in amber with a clear label when applicable</li>
+      <li><strong>Transaction table (below)</strong> — Sortable by date, with purchase and deduction rows clearly differentiated by color and icon; running balance shown in a dedicated column</li>
+    </ul>
+    <p>Both sections support real-time updates — the balance card refreshes without a page reload when a new test is assigned. Clients can also download a PDF invoice for any transaction directly from the table row.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">05 — Outcome</div>
+    <h2>Support tickets down, trust up</h2>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">↓ 40%</div><div class="stat-label">Reduction in billing-related support inquiries</div></div>
+      <div class="stat-card"><div class="stat-num">15 sec</div><div class="stat-label">Time for clients to answer all 3 key questions in testing</div></div>
+      <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Of tested users passed the 3-question comprehension check</div></div>
+    </div>
+    <p>Post-launch, account managers reported a noticeable drop in billing questions on renewal calls. Clients who previously needed reassurance about their balance were coming to calls already informed. Billing stopped being a friction point and started being a trust signal.</p>
+  </div>
+
+</div>
+
+<section class="next-project">
+  <div>
+    <div class="next-label">Next project</div>
+    <a class="next-title" href="communication-hub.html">Communication Hub — GanttPRO</a>
+  </div>
+  <a class="next-arrow" href="communication-hub.html">→</a>
+</section>
+</div></body></html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Reports System — Viktoryia Kartynnik</title>
+<meta name="description" content="Designing an AI-powered reporting dashboard for SmallTalk2Me's B2B English learning platform.">
+<link rel="stylesheet" href="../css/project.css?v=5">
+</head>
+<body>
+<div class="project-page">
+
+<nav class="site-nav">
+  <a class="nav-back" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+  <span class="nav-name">Viktoryia Kartynnik</span>
+</nav>
+
+<header class="hero">
+  <span class="hero-tag">SmallTalk2Me</span>
+  <h1>AI Reports System</h1>
+  <p class="hero-sub">Turning 25 AI-measured speech parameters into a report any learner — or HR manager — can actually understand and act on.</p>
+</header>
+
+<div class="meta-strip">
+  <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Product Designer (sole)</span></div>
+  <div class="meta-item"><span class="meta-label">Timeline</span><span class="meta-value">6 weeks</span></div>
+  <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">Web & Mobile</span></div>
+  <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Figma, FigJam</span></div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-num">01 — Overview</div>
+    <h2>25 parameters. One report anyone can read.</h2>
+    <p>SmallTalk2Me is an AI-powered English speaking platform serving 2.5M+ learners across 125 countries. After every speaking session, the AI engine evaluates the user across 25 linguistic parameters — pronunciation, fluency, vocabulary, coherence, grammar — and generates a CEFR proficiency score.</p>
+    <p>The data was rich. The problem was presentation. Raw scores across 25 dimensions mean nothing to a learner who just wants to improve, or an HR manager who needs to decide whether a candidate is ready for a client-facing role. I was brought in to design the reports layer: the interface that turns AI output into something people can understand, trust, and act on — on both web and mobile, for individual learners and B2B clients alike.</p>
+  </div>
+
+  <div class="img-frame">
+    <img src="../images/ai report_1.png" alt="AI Reports dashboard — company-level summary with AI insight strip" style="width:100%;height:auto;display:block;border-radius:8px;">
+    <div class="img-caption">Vocabulary report — active words, unique words, rarity breakdown + AI rephrasing suggestions</div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">02 — Problem</div>
+    <h2>Data without meaning is noise</h2>
+    <p>The AI engine produced exceptional signal — 25 measured parameters per session, covering everything from speaking rate and vocabulary rarity to coherence patterns and pronunciation accuracy. But none of it was designed to be read by humans.</p>
+    <div class="callout">
+      <strong>Two very different users, one report:</strong> A learner wants to know what to fix and how to improve. An HR manager wants to know if this person is ready for the job. The same underlying data needed to serve both goals without overwhelming either.
+    </div>
+    <p>The challenge wasn't building a dashboard — it was deciding what to show, what to hide, how to sequence information so the most important insight lands first, and how to frame AI-generated feedback so it feels useful rather than clinical.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">03 — Process</div>
+    <h2>Designing for two mental models at once</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <strong>User research — learners and managers</strong>
+          <p>Interviewed both learner-side users and B2B account managers. Learners wanted to understand specific mistakes and know what to practice next. Managers needed a quick confidence signal — is this person at the right level? The two goals required different visual hierarchies.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <strong>Parameter grouping and information architecture</strong>
+          <p>Grouped 25 raw parameters into 4 readable dimensions: Fluency, Pronunciation, Vocabulary, and Coherence. Each dimension gets a score and a plain-language descriptor. The total CEFR score leads — everything else supports it.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <strong>AI rephrasing and coherence suggestions</strong>
+          <p>Designed the vocabulary section to show not just stats, but AI-generated alternatives — "how a native speaker would say the same thing." Coherence suggestions surface overused connectors with richer alternatives. This turned passive data into active guidance.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <strong>Speaking rate visualisation</strong>
+          <p>Designed a custom scale for speaking rate (words per minute) placed on a contextual range — from "maybe boring" to "too fast to understand" — so the number has immediate meaning without needing explanation.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">5</span>
+        <div class="step-body">
+          <strong>Mobile report design</strong>
+          <p>Designed the full mobile report experience — score summary, CEFR badge, per-dimension breakdowns, annotated transcript with colour-coded mistake categories (mistake · speech error · suggestion). Validated with prototype testing before dev handoff.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IA Diagram -->
+  <div class="img-frame">
+    <svg viewBox="0 0 740 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:8px;background:#f5f4f1;">
+      <defs>
+        <marker id="arr2" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
+          <path d="M0,0.5 L0,6.5 L9,3.5 z" fill="#c0c0c0"/>
+        </marker>
+      </defs>
+
+      <!-- Header label -->
+      <text x="370" y="36" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#aaa" letter-spacing="0.12em">INFORMATION ARCHITECTURE — REPORTS SYSTEM</text>
+
+      <!-- ═══════════════ LEVEL 1: COMPANY ═══════════════ -->
+      <rect x="195" y="56" width="350" height="106" rx="8" fill="#ffffff" stroke="#dde4f5" stroke-width="1.5"/>
+      <!-- header bar -->
+      <rect x="195" y="56" width="350" height="28" rx="8" fill="#e8effe"/>
+      <rect x="195" y="72" width="350" height="12" rx="0" fill="#e8effe"/>
+      <text x="370" y="74" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#3a6fd8">01 — Company Summary</text>
+
+      <!-- 3 stat cards -->
+      <rect x="211" y="93" width="96" height="42" rx="5" fill="#f4f7ff" stroke="#dde4f5" stroke-width="1"/>
+      <text x="259" y="109" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#888">Adoption rate</text>
+      <text x="259" y="126" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="18" font-weight="700" fill="#3a6fd8">74%</text>
+
+      <rect x="317" y="93" width="96" height="42" rx="5" fill="#f4f7ff" stroke="#dde4f5" stroke-width="1"/>
+      <text x="365" y="109" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#888">Avg. score</text>
+      <text x="365" y="126" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="18" font-weight="700" fill="#3a6fd8">81%</text>
+
+      <rect x="423" y="93" width="106" height="42" rx="5" fill="#eef6ff" stroke="#b8d8f8" stroke-width="1"/>
+      <text x="476" y="106" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8.5" fill="#4a8fc4">✦ AI Insight</text>
+      <text x="476" y="119" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="#555" font-style="italic">"3 employees need</text>
+      <text x="476" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="#555" font-style="italic">attention this week"</text>
+
+      <!-- level label -->
+      <text x="185" y="80" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#b0b8d0" font-weight="500">LEVEL 1</text>
+
+      <!-- connector -->
+      <line x1="370" y1="163" x2="370" y2="194" stroke="#c8c8c8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr2)"/>
+      <text x="382" y="183" font-family="DM Sans, sans-serif" font-size="8.5" fill="#ccc">drill down</text>
+
+      <!-- ═══════════════ LEVEL 2: TEAM ═══════════════ -->
+      <rect x="140" y="196" width="460" height="130" rx="8" fill="#ffffff" stroke="#f0ddc8" stroke-width="1.5"/>
+      <rect x="140" y="196" width="460" height="28" rx="8" fill="#fef0e0"/>
+      <rect x="140" y="212" width="460" height="12" rx="0" fill="#fef0e0"/>
+      <text x="370" y="214" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#b86e18">02 — Team Breakdown</text>
+      <text x="125" y="220" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#d4b898" font-weight="500">LEVEL 2</text>
+
+      <!-- table header -->
+      <rect x="156" y="232" width="428" height="18" rx="3" fill="#fafafa" stroke="#eeeeee" stroke-width="1"/>
+      <text x="168" y="244" font-family="DM Sans, sans-serif" font-size="8" font-weight="600" fill="#aaa" letter-spacing="0.06em">NAME</text>
+      <text x="294" y="244" font-family="DM Sans, sans-serif" font-size="8" font-weight="600" fill="#aaa" letter-spacing="0.06em">PROGRESS</text>
+      <text x="420" y="244" font-family="DM Sans, sans-serif" font-size="8" font-weight="600" fill="#aaa" letter-spacing="0.06em">SCORE</text>
+      <text x="488" y="244" font-family="DM Sans, sans-serif" font-size="8" font-weight="600" fill="#aaa" letter-spacing="0.06em">STATUS</text>
+
+      <!-- row 1 -->
+      <line x1="156" y1="250" x2="584" y2="250" stroke="#f0f0f0" stroke-width="1"/>
+      <text x="168" y="263" font-family="DM Sans, sans-serif" font-size="9" fill="#333">Anna M.</text>
+      <rect x="290" y="257" width="100" height="6" rx="3" fill="#ebebeb"/>
+      <rect x="290" y="257" width="76" height="6" rx="3" fill="#6bba7a"/>
+      <text x="420" y="263" font-family="DM Sans, sans-serif" font-size="9" fill="#333">84%</text>
+      <rect x="484" y="255" width="46" height="14" rx="7" fill="#e8f5ec"/>
+      <text x="507" y="265" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="#2e8b4a">On track</text>
+
+      <!-- row 2 — at risk -->
+      <line x1="156" y1="270" x2="584" y2="270" stroke="#f0f0f0" stroke-width="1"/>
+      <rect x="156" y="271" width="428" height="22" rx="0" fill="#fff8f6"/>
+      <text x="168" y="285" font-family="DM Sans, sans-serif" font-size="9" fill="#cc3333">James K.</text>
+      <rect x="290" y="278" width="100" height="6" rx="3" fill="#ebebeb"/>
+      <rect x="290" y="278" width="22" height="6" rx="3" fill="#e07070"/>
+      <text x="420" y="285" font-family="DM Sans, sans-serif" font-size="9" fill="#cc3333">23%</text>
+      <rect x="484" y="276" width="70" height="14" rx="7" fill="#fdecea"/>
+      <text x="519" y="286" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="#cc3333">⚠ 9d inactive</text>
+
+      <!-- row 3 -->
+      <line x1="156" y1="293" x2="584" y2="293" stroke="#f0f0f0" stroke-width="1"/>
+      <text x="168" y="307" font-family="DM Sans, sans-serif" font-size="9" fill="#333">Maria S.</text>
+      <rect x="290" y="300" width="100" height="6" rx="3" fill="#ebebeb"/>
+      <rect x="290" y="300" width="55" height="6" rx="3" fill="#f0c060"/>
+      <text x="420" y="307" font-family="DM Sans, sans-serif" font-size="9" fill="#333">61%</text>
+      <rect x="484" y="298" width="54" height="14" rx="7" fill="#fef8e8"/>
+      <text x="511" y="308" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="#b07c10">In progress</text>
+
+      <!-- connector -->
+      <line x1="370" y1="328" x2="370" y2="358" stroke="#c8c8c8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr2)"/>
+      <text x="382" y="348" font-family="DM Sans, sans-serif" font-size="8.5" fill="#ccc">drill down</text>
+
+      <!-- ═══════════════ LEVEL 3: INDIVIDUAL ═══════════════ -->
+      <rect x="100" y="360" width="540" height="120" rx="8" fill="#ffffff" stroke="#c8e6d4" stroke-width="1.5"/>
+      <rect x="100" y="360" width="540" height="28" rx="8" fill="#e8f6ee"/>
+      <rect x="100" y="376" width="540" height="12" rx="0" fill="#e8f6ee"/>
+      <text x="370" y="378" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2a7a4a">03 — Individual Timeline</text>
+      <text x="88" y="382" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#9ecfb0" font-weight="500">LEVEL 3</text>
+
+      <!-- sparkline chart area -->
+      <rect x="116" y="397" width="280" height="68" rx="4" fill="#f8fbf9" stroke="#e0eeea" stroke-width="1"/>
+      <text x="122" y="410" font-family="DM Sans, sans-serif" font-size="7.5" fill="#aaa">Score over time</text>
+      <!-- grid lines -->
+      <line x1="116" y1="424" x2="396" y2="424" stroke="#eee" stroke-width="0.75"/>
+      <line x1="116" y1="440" x2="396" y2="440" stroke="#eee" stroke-width="0.75"/>
+      <line x1="116" y1="456" x2="396" y2="456" stroke="#eee" stroke-width="0.75"/>
+      <!-- sparkline path -->
+      <polyline points="130,456 158,448 186,444 214,438 242,450 270,432 298,424 326,428 354,420 382,414" fill="none" stroke="#4caf78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- dots -->
+      <circle cx="130" cy="456" r="2.5" fill="#4caf78"/>
+      <circle cx="242" cy="450" r="2.5" fill="#4caf78"/>
+      <circle cx="382" cy="414" r="3.5" fill="#2a7a4a"/>
+
+      <!-- right side stats -->
+      <rect x="412" y="396" width="108" height="30" rx="4" fill="#f4faf6" stroke="#d0eadb" stroke-width="1"/>
+      <text x="466" y="409" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#888">Tests taken</text>
+      <text x="466" y="423" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="14" font-weight="700" fill="#2a7a4a">12</text>
+
+      <rect x="528" y="396" width="96" height="30" rx="4" fill="#f4faf6" stroke="#d0eadb" stroke-width="1"/>
+      <text x="576" y="409" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#888">Avg. time</text>
+      <text x="576" y="423" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="14" font-weight="700" fill="#2a7a4a">18m</text>
+
+      <!-- export button -->
+      <rect x="412" y="436" width="212" height="24" rx="5" fill="#2a7a4a"/>
+      <text x="518" y="452" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#fff" letter-spacing="0.04em">Export PDF / CSV ↓</text>
+
+      <!-- footer note -->
+      <text x="370" y="498" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#bbb" font-style="italic">AI summary regenerates dynamically as filters change</text>
+    </svg>
+    <div class="img-caption">Report structure — from raw AI parameters to readable dimensions</div>
+  </div>
+
+  <div class="img-frame">
+    <img src="../images/ai report_2.png" alt="AI Reports — team breakdown table with at-risk flags" style="width:100%;height:auto;display:block;border-radius:8px;">
+    <div class="img-caption">Test result — Total Score, CEFR level, speaking rate with contextual scale</div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">04 — Solution</div>
+    <h2>A report that explains itself</h2>
+    <p>The final Reports System works across web and mobile for both individual learners and B2B HR managers viewing employee results. Every report is structured the same way:</p>
+    <ul>
+      <li><strong>Score + CEFR level</strong> — the primary signal, always at the top. Instantly answers "how good is this person's English?"</li>
+      <li><strong>Four dimensions</strong> — Fluency, Pronunciation, Vocabulary, Coherence — each scored separately with a plain-language label so non-linguists understand what they're reading</li>
+      <li><strong>Speaking rate scale</strong> — words per minute shown on a contextual range with human anchors, not just a number</li>
+      <li><strong>AI rephrasing</strong> — side-by-side: what the user said vs. how a native speaker would phrase it</li>
+      <li><strong>Annotated transcript</strong> — the user's actual text with colour-coded labels: mistakes, speech errors, suggestions</li>
+      <li><strong>Coherence suggestions</strong> — overused connectors replaced with richer, more natural alternatives</li>
+    </ul>
+  </div>
+
+  <div class="img-frame">
+    <div style="display:flex;gap:24px;justify-content:center;align-items:flex-start;">
+      <div style="flex:0 0 auto;text-align:center;">
+        <img src="../images/ai report_mob_1.png" alt="AI Reports mobile — summary view" style="width:260px;height:auto;display:block;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.12);">
+      </div>
+      <div style="flex:0 0 auto;text-align:center;">
+        <img src="../images/ai report_mob_2.png" alt="AI Reports mobile — team detail view" style="width:260px;height:auto;display:block;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.12);">
+      </div>
+    </div>
+    <div class="img-caption">Mobile — CEFR score breakdown, annotated transcript with mistake categories, coherence suggestions</div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">05 — Outcome</div>
+    <h2>Complex AI output — zero explanation needed</h2>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">25</div><div class="stat-label">AI-measured parameters distilled into one readable report</div></div>
+      <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">User types served by one design — learners and HR managers</div></div>
+      <div class="stat-card"><div class="stat-num">2.5M+</div><div class="stat-label">Learners on the platform the reports system serves</div></div>
+    </div>
+    <p>The AI rephrasing and annotated transcript features became the most-engaged sections of the report — learners spent the most time there because they got specific, actionable guidance rather than abstract scores. For B2B clients, the CEFR badge and dimension breakdown gave HR managers a hiring-ready signal they could share with stakeholders without needing to interpret anything.</p>
+  </div>
+
+</div>
+
+<section class="next-project">
+  <div>
+    <div class="next-label">Next project</div>
+    <a class="next-title" href="global-redesign.html">Global Redesign — GanttPRO</a>
+  </div>
+  <a class="next-arrow" href="global-redesign.html">→</a>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GanttPRO Mobile Version — Viktoryia Kartynnik</title>
+<meta name="description" content="Designing GanttPRO's mobile app from the ground up — new navigation, task views, and touch-first interactions.">
+<link rel="stylesheet" href="../css/project.css?v=5">
+</head>
+<body>
+<div class="project-page">
+<nav class="site-nav">
+  <a class="nav-back" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+  <span class="nav-name">Viktoryia Kartynnik</span>
+</nav>
+
+<header class="hero">
+  <span class="hero-tag">GanttPRO</span>
+  <h1>GanttPRO Mobile</h1>
+  <p class="hero-sub">Designing the mobile experience from scratch — a touch-first product that matches the power of the desktop app without the desktop complexity.</p>
+</header>
+<div class="meta-strip">
+  <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Product Designer</span></div>
+  <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">iOS, Android</span></div>
+  <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Figma, Principle</span></div>
+</div>
+<div class="content">
+  <div class="section">
+    <div class="section-num">01 — Overview</div>
+    <h2>Mobile parity without mobile overload</h2>
+    <p>GanttPRO's original mobile app was a scaled-down port of the desktop interface — visually and technically. It had critical gaps: no deletion confirmation dialogs, no feedback for download states, errors with no recovery path. It was the product's weakest surface, but for 800,000 registered teams, mobile access wasn't optional.</p>
+    <p>As part of the broader Global Redesign, I designed the mobile app from the ground up with a touch-first mental model, rebuilding every major flow for the constraints and expectations of iOS and Android.</p>
+  </div>
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/cea22cc5-bb21-471b-a6e3-bf3c075201ad/cover_19/w=1920,quality=90,fit=scale-down" alt="Task list — new mobile layout" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Task list — new mobile layout</div>
+</div>
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/cfa7ef1c-a434-4671-9ab3-ee8b9e853c31/Screenshot_2024-12-30_at_5.06.30_PM_1/w=1920,quality=90,fit=scale-down" alt="Calendar view — mobile" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Calendar view — mobile</div>
+</div>
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/6e0b9eb2-fa22-4d33-a552-c6c23578021b/Screenshot_2024-12-30_at_6.27.19_PM_1/w=1920,quality=90,fit=scale-down" alt="Touch interaction system" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Touch interaction system</div>
+</div>
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/7571c456-044c-4246-8cd5-349a7efd9d04/Screenshot_2024-12-30_at_6.36.53_PM_1/w=1920,quality=90,fit=scale-down" alt="Edge case states — empty, error, offline" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Edge case states — empty, error, offline</div>
+</div>
+  <div class="section">
+    <div class="section-num">02 — Process</div>
+    <h2>40+ edge cases before a single line of code</h2>
+    <div class="steps">
+      <div class="step"><span class="step-num">1</span><div class="step-body"><strong>User research</strong><p>Collected feedback from existing mobile users through in-app surveys and 6 user interviews. The top frustrations: can't find tasks quickly, accidental deletions with no undo, and no way to tell if an action succeeded.</p></div></div>
+      <div class="step"><span class="step-num">2</span><div class="step-body"><strong>Navigation redesign</strong><p>Rebuilt the bottom navigation around the four most-used flows: My Tasks, Project View, Notifications, and Settings. Removed 3 navigation layers that had existed in the original app.</p></div></div>
+      <div class="step"><span class="step-num">3</span><div class="step-body"><strong>Touch interaction system</strong><p>Designed the complete interaction system for task management: swipe actions, long-press menus, pull-to-refresh, and haptic feedback triggers. Each interaction was mapped to platform conventions (iOS vs. Android) separately.</p></div></div>
+      <div class="step"><span class="step-num">4</span><div class="step-body"><strong>Edge case documentation</strong><p>Before handoff, documented 40+ edge cases covering empty states, error states, offline behavior, permission-restricted views, and concurrent edit scenarios. This prevented the gaps that had made the original app unreliable.</p></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-num">03 — Outcome</div>
+    <h2>The first mobile product GanttPRO was proud of</h2>
+    <p>The redesigned mobile app shipped as part of the 2023 platform update. User satisfaction scores for mobile improved significantly post-launch. The design system built for mobile — components, interaction patterns, spacing tokens — became the standard for all subsequent mobile feature development at GanttPRO.</p>
+  </div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/e8df6406-593d-4c67-83d8-9ad757a4600a/Frame_33131/w=1920,quality=90,fit=scale-down" alt="Final mobile screens — task detail, notifications, attachments" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final iOS screens — task detail, notifications, attachments</div>
+</div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/4aea36e1-5e7e-44f8-93ff-628c45a71fee/Frame_33130/w=1920,quality=90,fit=scale-down" alt="Final Android screens — time logging and project overview" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final Android screens — time logging and project overview</div>
+</div>
+
+</div>
+
+<section class="next-project">
+  <div>
+    <div class="next-label">Next project</div>
+    <a class="next-title" href="team-management.html">Project Team Management — GanttPRO</a>
+  </div>
+  <a class="next-arrow" href="team-management.html">→</a>
+</section>
+</div></body></html>

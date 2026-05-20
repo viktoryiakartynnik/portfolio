@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Communication Hub — Viktoryia Kartynnik</title>
+<meta name="description" content="Redesigning task-level communication in GanttPRO to reduce context-switching and keep teams in sync.">
+<link rel="stylesheet" href="../css/project.css?v=5">
+</head>
+<body>
+<div class="project-page">
+<nav class="site-nav">
+  <a class="nav-back" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+  <span class="nav-name">Viktoryia Kartynnik</span>
+</nav>
+
+<header class="hero">
+  <span class="hero-tag">GanttPRO</span>
+  <h1>Communication Hub</h1>
+  <p class="hero-sub">Redesigning task-level communication so teams could stay in context — without leaving the Gantt chart.</p>
+</header>
+<div class="meta-strip">
+  <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">UX Designer</span></div>
+  <div class="meta-item"><span class="meta-label">Timeline</span><span class="meta-value">3 months</span></div>
+  <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">Web</span></div>
+  <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Figma, Miro, UserTesting</span></div>
+</div>
+<div class="content">
+
+  <div class="section">
+    <div class="section-num">01 — Overview</div>
+    <h2>Discussion that lives where the work lives</h2>
+    <p>GanttPRO is a project management tool built around Gantt charts. Teams plan timelines, assign tasks, and track progress — but until this project, they had no way to discuss those tasks inside the product. Questions, status updates, and blockers were happening in Slack or email, disconnected from the tasks they referred to.</p>
+    <p>The brief: design a Communication Hub that lets team members add comments, ask questions, and share updates directly within a task — keeping discussion contextual and searchable.</p>
+  </div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/29b27515-0b5c-46bc-9c24-030fdca01e1b/fff/w=1920,quality=90,fit=scale-down" alt="Communication panel — task-level comments" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Communication panel — task-level comments</div>
+</div>
+
+  <div class="section">
+    <div class="section-num">02 — Problem</div>
+    <h2>Context-switching was eating productivity</h2>
+    <p>Stakeholder interviews and session recordings revealed a consistent pattern: a project manager sees a task is behind schedule, opens Slack to ask the assignee, receives a reply an hour later, and loses the thread when they return to GanttPRO. The decision — and the reasoning behind it — never makes it back to the task.</p>
+    <ul>
+      <li>Task updates were fragmented across tools (Slack, email, in-app notifications)</li>
+      <li>There was no record of <em>why</em> a task changed status — only that it did</li>
+      <li>New team members joining a project had no way to understand the history of decisions</li>
+    </ul>
+    <div class="callout">
+      The problem wasn't that teams weren't communicating. It was that communication wasn't attached to the work — so it evaporated.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">03 — Process</div>
+    <h2>Research, lo-fi concepts, user validation</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <strong>Stakeholder alignment</strong>
+          <p>Worked with the product manager and two developers to define scope: what belongs in a task communication thread versus a project-level activity feed? Established clear boundaries to avoid feature creep.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <strong>Best practices research</strong>
+          <p>Analyzed task communication in Linear, Notion, Asana, Jira, and Basecamp. Key insight: the most effective implementations kept comments close to task metadata (assignee, status, due date) rather than in a separate panel.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <strong>Lo-fi wireframes — 3 layout directions</strong>
+          <p>Explored sidebar panel, inline expansion, and split-pane layouts. The sidebar direction won: it kept the Gantt chart fully visible while making comments accessible without a full-page transition.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <strong>User interviews (n=5)</strong>
+          <p>Tested the Figma prototype with 5 GanttPRO users. Key findings: users wanted @mention support, the ability to attach files to comments, and a clear visual distinction between comments and system activity entries.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">5</span>
+        <div class="step-body">
+          <strong>Developer handoff</strong>
+          <p>Delivered component specs, interaction states, and an annotated prototype. Collaborated daily during the 3-week implementation sprint to handle edge cases (empty states, notification badges, mention autocomplete).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/9d10abe8-06e7-422e-9865-beada4376574/Frame_33129/w=1920,quality=90,fit=scale-down" alt="Wireframe progression — from lo-fi to final" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Wireframe progression — from lo-fi to final</div>
+</div><div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/63ebad9b-0b74-49c1-a416-2beb02b81e5d/Frame_33128/w=1920,quality=90,fit=scale-down" alt="@mentions and file attachments in comments" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">@mentions and file attachments in comments</div>
+</div>
+
+  <div class="section">
+    <div class="section-num">04 — Solution</div>
+    <h2>A conversation thread that never loses the task</h2>
+    <p>The Communication Hub is a persistent sidebar panel that opens alongside any task in GanttPRO. It contains:</p>
+    <ul>
+      <li><strong>Threaded comments</strong> — with @mention support, emoji reactions, and file attachment</li>
+      <li><strong>Activity log</strong> — automatic entries for status changes, assignee updates, and due date shifts, visually distinct from human comments</li>
+      <li><strong>Notification control</strong> — per-task follow toggle; followers get in-app and email notifications for new comments on that task</li>
+    </ul>
+    <p>The panel persists its scroll position per task and remembers unread state. Opening a task from a notification takes you directly to the relevant comment.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">05 — Outcome</div>
+    <h2>Discussion back where it belongs</h2>
+    <p>Post-launch feedback from power users was consistently positive — particularly the combination of human comments and automatic activity log in a single thread. Teams reported using Slack significantly less for task-specific discussion after the feature shipped.</p>
+    <p>The Communication Hub became one of the most-requested-then-released features in GanttPRO's public roadmap — and later served as the foundation for the real-time notification system built in 2023.</p>
+  </div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/db53d1be-5d42-478a-9f23-2b9899539b42/2110/w=1920,quality=90,fit=scale-down" alt="Final Communication Hub — shipped design" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final shipped design — Communication Hub in context</div>
+</div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/7ac2e885-6ebe-4dd3-8da1-eda519763582/2115/w=1920,quality=90,fit=scale-down" alt="Communication Hub — full feature view" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Communication Hub — full feature in production</div>
+</div>
+
+</div>
+
+<section class="next-project">
+  <div>
+    <div class="next-label">Next project</div>
+    <a class="next-title" href="../index.html">Back to all projects</a>
+  </div>
+  <a class="next-arrow" href="../index.html">→</a>
+</section>
+</div></body></html>

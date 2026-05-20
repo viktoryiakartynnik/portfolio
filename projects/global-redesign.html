@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Redesign — GanttPRO — Viktoryia Kartynnik</title>
+<meta name="description" content="Sole designer for a full-platform redesign serving 800,000 teams across web and mobile.">
+<link rel="stylesheet" href="../css/project.css?v=5">
+<style>
+.compare-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: col-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.compare-slider img { display: block; width: 100%; height: auto; pointer-events: none; }
+.compare-after { position: relative; }
+.compare-before {
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.compare-before img { width: auto; min-width: 100%; max-width: none; height: 100%; object-fit: cover; object-position: left top; }
+.compare-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+.compare-line {
+  flex: 1;
+  width: 2px;
+  background: rgba(255,255,255,0.9);
+}
+.compare-btn {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  margin: 0;
+}
+.compare-label {
+  position: absolute;
+  top: 14px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 3px;
+  pointer-events: none;
+}
+.compare-label-before { left: 14px; }
+.compare-label-after  { right: 14px; }
+</style>
+</head>
+<body>
+<div class="project-page">
+<nav class="site-nav">
+  <a class="nav-back" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+  <span class="nav-name">Viktoryia Kartynnik</span>
+</nav>
+
+<header class="hero">
+  <span class="hero-tag">GanttPRO</span>
+  <h1>Global Redesign</h1>
+  <p class="hero-sub">A full-platform redesign of GanttPRO — desktop and mobile — serving 800,000 teams. Sole designer across 2+ years.</p>
+</header>
+<div class="meta-strip">
+  <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Product Designer (sole)</span></div>
+  <div class="meta-item"><span class="meta-label">Timeline</span><span class="meta-value">2+ years</span></div>
+  <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">Web, iOS, Android</span></div>
+  <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Figma, Miro, UserTesting</span></div>
+</div>
+<div class="content">
+
+  <div class="section">
+    <div class="section-num">01 — Overview</div>
+    <h2>When everything looks the same, nothing gets done</h2>
+    <p>GanttPRO is a project management platform built around Gantt charts. By 2021 it had grown to 800,000 registered teams — but the product hadn't had a systematic design pass since its original launch. The interface had accumulated years of incremental decisions: task names, subtasks, dates, statuses, and assignees all competed for attention at the same visual weight. Nothing was prioritized. Everything looked equally important, so nothing felt important.</p>
+    <p>I joined as the sole designer with a mandate to rebuild the visual and interaction foundation of the entire platform — desktop first, then mobile from scratch.</p>
+  </div>
+
+<div class="img-frame">
+  <div class="compare-slider" id="compareSlider">
+    <div class="compare-after">
+      <img src="../images/after-redesign.png" alt="After redesign">
+    </div>
+    <div class="compare-before" id="compareBefore">
+      <img src="../images/before-redesign.png" alt="Before redesign">
+    </div>
+    <div class="compare-handle" id="compareHandle">
+      <div class="compare-line"></div>
+      <div class="compare-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 9H2m0 0 2.5-2.5M2 9l2.5 2.5M12 9h4m0 0-2.5-2.5M16 9l-2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="compare-line"></div>
+    </div>
+    <span class="compare-label compare-label-before">Before</span>
+    <span class="compare-label compare-label-after">After</span>
+  </div>
+  <div class="img-caption">Before / after — drag to compare</div>
+</div>
+
+<div class="img-frame">
+  <img src="https://assets.super.so/381800b0-b801-46e1-ab0f-665d54482ba0/images/6b7a60f5-e5c3-4352-a8d1-dab012b86634/frame_33148.png" alt="Competitor benchmarking — auditing Asana, ClickUp, Monday, Wrike, TeamGantt" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Competitor audit — benchmarking across 14 dimensions</div>
+</div>
+
+  <div class="section">
+    <div class="section-num">02 — Problem</div>
+    <h2>Three compounding failures</h2>
+    <p>Discovery surfaced three distinct problem layers that needed addressing together:</p>
+    <ul>
+      <li><strong>Visual hierarchy collapse</strong> — All UI elements shared the same typographic and color weight. Users couldn't scan a project at a glance; every row demanded the same cognitive effort.</li>
+      <li><strong>Missing data views</strong> — Power users managing large projects had no way to work in a tabular, data-dense format. The Gantt chart was the only view — appropriate for timelines, but not for bulk editing or reporting.</li>
+      <li><strong>Mobile as an afterthought</strong> — The mobile app had critical gaps: no deletion confirmations, no download feedback, errors without recovery paths. It was a port, not a product.</li>
+    </ul>
+    <div class="callout">
+      <strong>The brief was deceptively broad:</strong> don't just fix what's broken — establish the design foundation the team can build on for the next five years.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">03 — Process</div>
+    <h2>Competitive benchmarking, three concepts, one direction</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <strong>Competitive audit</strong>
+          <p>Benchmarked Asana, ClickUp, Monday, Wrike, and TeamGantt across 14 dimensions: information density, navigation, mobile parity, onboarding, empty states, error handling. Identified where GanttPRO was behind market expectations and where it had latent strengths.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <strong>Three design directions</strong>
+          <p>Rather than iterating on the existing interface, I built three fundamentally different visual concepts — varying in density, color usage, and navigation paradigm — and tested them with real users before committing. Direction 2 (structured density with clear hierarchy) won decisively.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <strong>Web redesign + Grid view</strong>
+          <p>Rebuilt the task row system with a clear typographic hierarchy. Designed a new Grid view for data-intensive workflows — giving power users the spreadsheet-like control they'd been requesting for years.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <strong>Mobile from scratch</strong>
+          <p>Designed the complete iOS and Android experience from zero — task management, time logging, attachments, notifications. Documented 40+ edge cases before development began to prevent the gaps that had plagued the original app.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">5</span>
+        <div class="step-body">
+          <strong>Design system foundation</strong>
+          <p>Built the first systematic design system for GanttPRO mobile: component library, interaction patterns, spacing tokens, color semantics. Established infrastructure the team continues building on.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="img-frame">
+  <img src="https://assets.super.so/381800b0-b801-46e1-ab0f-665d54482ba0/images/d68afef9-f9be-4a08-aed3-325f422f5903/frame_33147.png" alt="Concept testing — three design directions tested with real users" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Concept testing — three design directions, tested with real users</div>
+</div>
+
+<div class="img-frame">
+  <img src="https://assets.super.so/381800b0-b801-46e1-ab0f-665d54482ba0/images/cc6ab108-4587-4a8f-9223-904ab379ad21/screenshot_2024-12-30_at_5.06.30_pm_1.png" alt="Current state vs proposed direction mapping" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Current state vs proposed direction — concept exploration mapping</div>
+</div>
+
+  <div class="section">
+    <div class="section-num">04 — Outcome</div>
+    <h2>The design foundation GanttPRO uses today</h2>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">800K</div><div class="stat-label">Teams impacted by the redesigned platform</div></div>
+      <div class="stat-card"><div class="stat-num">40+</div><div class="stat-label">Mobile edge cases documented before dev handoff</div></div>
+      <div class="stat-card"><div class="stat-num">1st</div><div class="stat-label">Design system ever built for GanttPRO mobile</div></div>
+    </div>
+    <p>The redesign shipped incrementally across 2021–2023 and became the visual and structural foundation of GanttPRO's current product. The mobile app went from a feature-incomplete port to a first-class product. As sole designer, I built infrastructure — components, patterns, documentation — that the team continues to extend today.</p>
+  </div>
+
+<div class="img-frame">
+  <img src="https://assets.super.so/381800b0-b801-46e1-ab0f-665d54482ba0/images/a7f74ff6-3ee9-4f0d-a7bb-fcce4ae1dca0/global_redesign-2.png" alt="Final web redesign — clear task hierarchy, consistent status patterns, structured navigation" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final web redesign — clear hierarchy, consistent statuses, structured navigation</div>
+</div>
+
+<div class="img-frame">
+  <img src="https://assets.super.so/381800b0-b801-46e1-ab0f-665d54482ba0/images/edcb8c6f-24ee-4506-ba4c-3b5e41cf367c/mobile_scr.png" alt="Final iOS & Android screens — task management, time logging, attachments, notifications" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final iOS & Android — task management, time logging, attachments, notifications</div>
+</div>
+
+</div>
+
+<section class="next-project">
+  <div>
+    <div class="next-label">Next project</div>
+    <a class="next-title" href="b2b-billing.html">B2B Billing — SmallTalk2Me</a>
+  </div>
+  <a class="next-arrow" href="b2b-billing.html">→</a>
+</section>
+</div>
+<script>
+(function() {
+  const slider = document.getElementById('compareSlider');
+  const before = document.getElementById('compareBefore');
+  const handle = document.getElementById('compareHandle');
+  if (!slider) return;
+
+  let dragging = false;
+
+  function setPos(x) {
+    const rect = slider.getBoundingClientRect();
+    let pct = (x - rect.left) / rect.width;
+    pct = Math.max(0.02, Math.min(0.98, pct));
+    before.style.width = (pct * 100) + '%';
+    handle.style.left = (pct * 100) + '%';
+  }
+
+  slider.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); e.preventDefault(); });
+  window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup', () => { dragging = false; });
+
+  slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend', () => { dragging = false; });
+})();
+</script>
+</body></html>

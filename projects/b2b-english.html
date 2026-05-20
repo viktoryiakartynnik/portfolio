@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2B English Preparation — Viktoryia Kartynnik</title>
+<meta name="description" content="Designing a structured corporate English learning interface for SmallTalk2Me's enterprise clients.">
+<link rel="stylesheet" href="../css/project.css?v=5">
+</head>
+<body>
+<div class="project-page">
+<nav class="site-nav">
+  <a class="nav-back" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+  <span class="nav-name">Viktoryia Kartynnik</span>
+</nav>
+
+<header class="hero">
+  <span class="hero-tag">SmallTalk2Me</span>
+  <h1>B2B English Preparation</h1>
+  <p class="hero-sub">A structured learning interface for corporate teams — built to make professional English preparation feel focused, not daunting.</p>
+</header>
+<div class="meta-strip">
+  <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">UX/UI Designer</span></div>
+  <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">Web</span></div>
+  <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Figma</span></div>
+</div>
+<div class="content">
+  <div class="section">
+    <div class="section-num">01 — Overview</div>
+    <h2>English preparation built for how companies actually work</h2>
+    <p>SmallTalk2Me offers AI-powered English proficiency testing for corporate clients. The B2B English Preparation course was designed as a companion to those tests — a structured learning path to help employees build the specific vocabulary and communication patterns tested on the platform.</p>
+    <p>Corporate clients needed a course interface that employees could navigate independently, with clear progress tracking so managers could see adoption without micromanaging.</p>
+  </div>
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/927f5540-c977-4162-96df-0dcebd2745a0/11121/w=1920,quality=90,fit=scale-down" alt="Course home — lesson navigation and progress" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Course home — lesson navigation and progress</div>
+</div>
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/b2911dcf-4aa5-4dbb-93c6-2619a3ad7121/cover_27/w=1920,quality=90,fit=scale-down" alt="Lesson screen — integrated assessment" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Lesson screen — integrated assessment</div>
+</div>
+  <div class="section">
+    <div class="section-num">02 — Process &amp; Solution</div>
+    <h2>Navigation clarity as the primary design goal</h2>
+    <p>Research on existing corporate training platforms (Coursera for Business, LinkedIn Learning, internal LMS tools) revealed a consistent problem: navigation friction. Employees weren't abandoning courses because the content was bad — they were abandoning them because they couldn't find their place, didn't know how much was left, or felt overwhelmed by too many simultaneous choices.</p>
+    <p>The design solution centered on three principles:</p>
+    <ul>
+      <li><strong>One thing at a time</strong> — each lesson screen shows only the current module, not the full course map. The full structure is accessible but not always visible.</li>
+      <li><strong>Persistent progress</strong> — a progress bar and lesson count are always visible, making effort feel finite and trackable</li>
+      <li><strong>Integrated assessment</strong> — proficiency check questions appear inline within lessons, not as a separate "test mode" that breaks the learning flow</li>
+    </ul>
+  </div>
+  <div class="section">
+    <div class="section-num">Design Detail</div>
+    <h2>Rethinking how the system communicated uncertainty</h2>
+    <p>One specific refinement was how the interface surfaced assessment caveats — moments where a score was generated but might not be fully reliable, such as when a user skipped a task.</p>
+    <div class="component-compare">
+      <div class="compare-item">
+        <span class="compare-label">Before</span>
+        <div class="alert-v1">The score given may be inaccurate: skipped task #1</div>
+      </div>
+      <div class="compare-item">
+        <span class="compare-label">After</span>
+        <div class="alert-v2" role="alert">
+          <svg class="alert-v2-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M9 2L1.5 15.5h15L9 2z" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.4" stroke-linejoin="round"/>
+            <line x1="9" y1="7" x2="9" y2="11" stroke="#D97706" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="9" cy="13" r="0.8" fill="#D97706"/>
+          </svg>
+          <div>
+            <p class="alert-v2-title">Score may be inaccurate</p>
+            <p class="alert-v2-desc">Task #1 was skipped — completing it will give you a more reliable result.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>The original relied on color alone to signal the warning, and merged the problem and explanation into a single flat line. The redesign separates the heading from the detail, adds an icon so the meaning is color-independent, and switches to amber — the semantic convention for non-blocking warnings rather than errors.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">03 — Outcome</div>
+    <h2>Strong adoption from corporate clients</h2>
+    <p>The course launched to positive reception from enterprise clients, particularly for its structural clarity and the integration of assessment within the learning flow. Adoption by corporate clients increased post-launch, and the course became part of SmallTalk2Me's standard B2B onboarding package for new accounts.</p>
+  </div>
+
+<div class="img-frame">
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/5cac6420-4a86-4ebb-ab27-4e3e4ceae62a/Free_User_3/w=1920,quality=90,fit=scale-down" alt="Free user onboarding flow — launched product screens" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Launched product — free user onboarding flow</div>
+</div>
+
+</div>
+
+<section class="next-project">
+  <div>
+    <div class="next-label">Next project</div>
+    <a class="next-title" href="ganttpro-mobile.html">GanttPRO Mobile Version</a>
+  </div>
+  <a class="next-arrow" href="ganttpro-mobile.html">→</a>
+</section>
+</div></body></html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viktoryia Kartynnik — Product Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; min-height: 100vh;
+  background: #fff; color: #111;
+  font-family: "Lato", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── PAGE GRID ── */
+.page {
+  width: 100vw; min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 260px 1fr 240px;
+  grid-template-areas: "header header header" "left center right";
+}
+
+/* ── HEADER ── */
+header {
+  grid-area: header;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 2rem 2rem 0;
+}
+.name-wrap { display: flex; flex-direction: column; align-items: center; }
+.name-wrap img { display: block; height: 40px; width: auto; }
+.role { font-size: 1rem; font-weight: 400; color: #111; margin-top: 0.4rem; }
+
+/* ── LEFT: PROJECTS — bottom-aligned, tight to face ── */
+.col-left { grid-area: left; padding: 0 0 0 5rem; display: flex; flex-direction: column; justify-content: center; }
+.col-left h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1.8rem; }
+
+/* Relative container — Other folder dropped well below Communication Hub */
+.folder-layout {
+  position: relative;
+  height: 325px;
+}
+
+/* Each folder item */
+.fi {
+  position: absolute;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  text-decoration: none; color: #111;
+  padding: 6px 8px; border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.12s;
+  -webkit-tap-highlight-color: transparent;
+}
+.fi:hover { background: rgba(0,0,0,0.05); transform: scale(1.05); }
+.fi:has(.radial-menu.open):hover { background: transparent; transform: none; }
+.fi img.fi-icon { width: 56px; height: 56px; object-fit: contain; display: block; }
+.fi-label {
+  font-size: 0.72rem; text-align: center; line-height: 1.3;
+  white-space: nowrap;
+  color: #111;
+}
+
+/* Positions from Figma (staggered, matching original design) */
+.fi-ai    { left: 0px;   top: 0px;   }
+.fi-glob  { left: 114px; top: 55px;  }
+.fi-bill  { left: 16px;  top: 100px; }
+.fi-comms { left: 96px;  top: 155px; }
+.fi-other { left: 150px; top: 255px; }
+
+/* ────────────────────────────────────────────
+   RADIAL "OTHER" MENU  –  Apple macOS style
+   Items fan to the right (matching Figma Frame 4)
+   ──────────────────────────────────────────── */
+.other-wrap { position: relative; }
+
+/* Origin at icon center (28px, 28px) */
+.radial-menu {
+  position: absolute;
+  top: 28px; left: 28px;
+  width: 0; height: 0;
+  pointer-events: none;
+  z-index: 300;
+}
+
+.ri {
+  position: absolute;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(var(--tx), var(--ty)) translate(-50%, -50%) rotate(var(--rot, 0deg));
+  padding: 5px 11px;
+  border-radius: 4px;
+  font-size: 0.75rem; font-weight: 500;
+  color: #2e2e2e;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0.5px 1px rgba(0,0,0,0.05);
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s ease;
+}
+.radial-menu.open .ri {
+  opacity: 1;
+  pointer-events: all;
+}
+.radial-menu.open .ri:hover {
+  transform: translate(var(--tx), var(--ty)) translate(-50%, -50%) translateY(-3px) rotate(var(--rot, 0deg));
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Backdrop */
+.backdrop { display:none; position:fixed; inset:0; z-index:150; cursor:default; }
+.backdrop.on { display:block; }
+
+/* ── CENTER: FACE ── */
+.col-center {
+  grid-area: center;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 0 2rem;
+}
+
+.face-wrap {
+  position: relative;
+  /* Face image: 1102×640px, displayed at 551px wide */
+  width: min(551px, 41vw);
+  user-select: none;
+}
+
+/* Two stacked images — JS does instant swap for blink */
+.face-img { display: block; width: 100%; height: auto; }
+.face-img.open  { position: relative; }
+.face-img.close { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; }
+
+/* Hover zone — covers entire face, above the strip */
+.face-hover-zone {
+  position: absolute; inset: 0; cursor: default; z-index: 20;
+}
+
+/*
+  Mouth flap — stop-motion paper collage.
+  IDLE:  PNG sits invisibly over the portrait's lower face — perfectly blended.
+  HOVER: the cutout drops as one rigid piece, revealing the open mouth beneath.
+         Movement is large and deliberate — stop-motion, not subtle.
+         The rectangular lower-face cutout IS the intended visible object on hover.
+  Open:  quick snap down (0.24s ease-out) = physical paper weight dropping.
+  Close: slower float back (0.42s) = unhurried, editorial.
+*/
+.mouth-strip-wrap {
+  position: absolute;
+  left: 42.68%;
+  top: 71%;
+  width: 14.155%; /* proportional: 78px / 551px face */
+  pointer-events: none;
+  z-index: 15;
+  opacity: 0;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), opacity 0s;
+}
+.mouth-strip-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+.mouth-strip-wrap.open {
+  opacity: 1;
+  transform: translateY(min(24px, 1.786vw)); /* scales with face at 41vw */
+  transition: transform 0.24s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.05s;
+}
+
+/*
+  Paper note — scanned blue paper, tucked behind the portrait.
+  Small, secondary, never dominant. Slides out from behind the face
+  as if someone quietly placed it into the composition.
+
+  Starts: shifted left + slightly low, behind the face edge (translateX negative).
+  Ends:   gently settled to the right, at a slight angle — placed by hand.
+  The permanent tilt in the visible state is intentional.
+*/
+/*
+  Paper note: real scanned PNG (1028x892px RGBA).
+  Slides from slightly behind the face. Text overlays on top of the image.
+  Permanent slight tilt in visible state = placed by hand.
+*/
+.about-pop {
+  position: absolute;
+  top: calc(58% + 30px);
+  left: calc(60% + 30px);
+  width: 220px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-14px) rotate(-1.5deg) scale(0.96);
+  transform-origin: left center;
+  transition:
+    opacity  0.32s ease,
+    transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 80;
+}
+.about-pop.visible {
+  opacity: 0.94;
+  transform: translateX(0) rotate(-0.7deg) scale(1);
+}
+.note-img { display: none; }
+.note-text {
+  position: relative;
+  top: auto; left: auto; right: auto; bottom: auto;
+  display: block;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent calc(1.55rem - 1px),
+      rgba(180, 210, 235, 0.35) calc(1.55rem - 1px),
+      rgba(180, 210, 235, 0.35) 1.55rem
+    ),
+    #eef4f0;
+  box-shadow:
+    2px 5px 18px rgba(0,0,0,0.10),
+    0 1px 3px rgba(0,0,0,0.06);
+  padding: 13px 15px 18px 22px;
+  overflow: visible;
+  clip-path: polygon(
+    0% 4px, 3px 0%, 8px 3px, 14px 0%, 20px 2px, 27px 0%,
+    34px 3px, 40px 0%, 100% 0%, 100% 100%,
+    0% 100%
+  );
+}
+.note-text::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 18px;
+  width: 1px; height: 100%;
+  background: rgba(220, 100, 100, 0.35);
+}
+.note-text p {
+  font-size: 0.72rem; line-height: 1.55rem; color: #111111; font-weight: 500;
+  letter-spacing: 0.005em;
+  position: relative;
+}
+
+/* Hover states driven by JS (.mouth-strip-wrap.open, .about-pop.visible) */
+
+/* ── RIGHT: CONTACT — bottom-aligned, tight to face ── */
+.col-right { grid-area: right; padding: 0 0 100px 0; margin-left: -65px; display: flex; flex-direction: column; justify-content: center; }
+.col-right h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1.8rem; }
+.contact-icons { display: grid; grid-template-columns: 56px 56px; gap: 1.4rem 1.2rem; }
+.ci {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  text-decoration: none; color: #111; border-radius: 10px; padding: 4px 6px;
+  transition: transform 0.15s, background 0.12s;
+  align-self: start;
+  width: 56px;
+}
+.ci:hover { transform: scale(1.06); background: rgba(0,0,0,0.04); }
+.ci img { width: 56px; height: 56px; object-fit: contain; display: block; border-radius: 12px; }
+.ci-lbl { font-size: 0.72rem; color: #111; text-align: center; white-space: nowrap; }
+.contact-icons .ci:nth-child(2) { margin-left: 60px; margin-top: 70px; }
+.contact-icons .ci:nth-child(3) { margin-top: -20px; position: relative; top: -25px; }
+
+/* ── TABLET (≤ 900px) ── */
+@media (max-width: 900px) {
+  .page { grid-template-columns: 200px 1fr 180px; }
+  .col-left { padding: 0 0 0 1.5rem; }
+  .col-right { margin-left: -30px; padding-bottom: 60px; }
+  .about-pop { left: auto; right: -8px; top: calc(55% + 15px); width: 185px;
+    transform: translateX(14px) rotate(-1.5deg) scale(0.96); transform-origin: right center; }
+  .about-pop.visible { transform: translateX(0) rotate(-0.7deg) scale(1); }
+}
+
+/* ── MOBILE (≤ 640px) ── */
+@media (max-width: 640px) {
+  .page { display: flex; flex-direction: column; align-items: stretch; min-height: 100vh; width: 100%; }
+
+  header { padding: 1.5rem 1.5rem 0.5rem; }
+
+  .col-center { padding: 1rem 0 0.5rem; justify-content: center; }
+  .face-wrap { width: 90vw; margin: 0 auto; }
+  .mouth-strip-wrap.open { transform: translateY(min(24px, 3.921vw)); }
+  .about-pop { left: auto; right: -12px; top: calc(50% + 10px); width: min(195px, 52vw);
+    transform: translateX(14px) rotate(-1.5deg) scale(0.96); transform-origin: right center; }
+  .about-pop.visible { transform: translateX(0) rotate(-0.7deg) scale(1); }
+
+  .col-left { padding: 1.5rem 1.5rem 0.5rem; justify-content: flex-start; align-items: flex-start; }
+  .col-left h2 { margin-bottom: 1rem; }
+  .folder-layout { position: static; height: auto; display: grid;
+    grid-template-columns: repeat(2, auto); gap: 0.2rem 1.2rem; justify-content: start; }
+  .fi { position: static; }
+  .fi-ai, .fi-glob, .fi-bill, .fi-comms { left: auto; top: auto; }
+  .fi-other { position: relative; left: auto; top: auto; }
+  .fi-label { white-space: normal; }
+
+  .radial-menu { top: calc(100% + 4px); left: 0; width: auto; height: auto;
+    display: none; flex-direction: column; gap: 4px; padding: 6px;
+    background: #fff; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.13); }
+  .radial-menu.open { display: flex; }
+  .ri { position: static; transform: none !important; opacity: 1; pointer-events: all; width: max-content; }
+
+  .col-right { margin-left: 0; padding: 1.5rem 1.5rem 2.5rem; justify-content: flex-start; align-items: flex-start; }
+  .col-right h2 { margin-bottom: 1rem; }
+  .contact-icons { display: flex; flex-direction: row; gap: 1.2rem; align-items: flex-start; }
+  .contact-icons .ci:nth-child(1),
+  .contact-icons .ci:nth-child(2),
+  .contact-icons .ci:nth-child(3) { margin: 0 !important; top: auto !important; position: static !important; width: 56px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="name-wrap">
+      <img src="images/name-row2.png" alt="VIKTORYIA">
+      <img src="images/name-row1.png" alt="KARTYNNIK">
+    </div>
+    <span class="role">Product Designer</span>
+  </header>
+
+  <!-- LEFT: PROJECTS -->
+  <aside class="col-left">
+    <h2>Projects</h2>
+    <div class="folder-layout">
+
+      <a class="fi fi-ai" href="projects/ai-reports.html">
+        <img class="fi-icon" src="images/folder-ai-reports.png" alt="">
+        <span class="fi-label">AI Reports System</span>
+      </a>
+
+      <a class="fi fi-glob" href="projects/global-redesign.html">
+        <img class="fi-icon" src="images/folder-global.png" alt="">
+        <span class="fi-label">Global App's Redesign</span>
+      </a>
+
+      <a class="fi fi-bill" href="projects/b2b-billing.html">
+        <img class="fi-icon" src="images/folder-billing.png" alt="">
+        <span class="fi-label">B2B Billing</span>
+      </a>
+
+      <a class="fi fi-comms" href="projects/communication-hub.html">
+        <img class="fi-icon" src="images/folder-communication.png" alt="">
+        <span class="fi-label">Communication Hub</span>
+      </a>
+
+      <!--
+        "Other" dropped far below Communication Hub (top:242) so radial
+        items can arc freely to the right without any overlap.
+        Other icon centre: top:350+28=378px in layout.
+        Arc goes right-side, items at ty –90 to +45 (all > 242 when added to 378).
+        Labels appear to the RIGHT of each circle (row layout).
+      -->
+      <div class="fi fi-other other-wrap" id="otherFolder">
+        <img class="fi-icon" src="images/folder-other.png" alt="">
+        <span class="fi-label">Other</span>
+
+        <div class="radial-menu" id="radialMenu">
+
+          <a class="ri" href="projects/b2c-pricing.html"
+             style="--tx:60px; --ty:-100px; --rot:-2deg; background:#b8d6ed;">Pricing</a>
+
+          <a class="ri" href="projects/permissions-roles.html"
+             style="--tx:110px; --ty:-72px; --rot:1.5deg; background:#e8ddc8;">Permissions</a>
+
+          <a class="ri" href="projects/b2b-english.html"
+             style="--tx:148px; --ty:-30px; --rot:-1deg; background:#f0ece4;">English Prep</a>
+
+          <a class="ri" href="projects/ganttpro-mobile.html"
+             style="--tx:158px; --ty:16px; --rot:2deg; background:#d4c4e8;">Mobile</a>
+
+          <a class="ri" href="projects/team-management.html"
+             style="--tx:144px; --ty:62px; --rot:-1.5deg; background:#e8d4b4;">Team Mgmt</a>
+
+          <a class="ri" href="projects/b2c-giveaway.html"
+             style="--tx:112px; --ty:104px; --rot:1deg; background:#c4e8d0;">Giveaway</a>
+
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- CENTER: FACE -->
+  <main class="col-center">
+    <div class="face-wrap" id="faceWrap">
+
+      <!-- State 1: eyes open (default) -->
+      <img class="face-img open"  id="faceOpen"   src="images/face-open.png"   alt="Viktoryia Kartynnik">
+      <!-- State 2: eyes closed — swapped instantly by JS -->
+      <img class="face-img close" id="faceClosed" src="images/face-closed.png" alt="">
+
+      <!-- Hover zone: any mouseover of the face triggers mouth + popup -->
+      <div class="face-hover-zone"></div>
+
+      <!-- Mouth flap: real Figma PNG asset. Hinges at top edge on hover. -->
+      <div class="mouth-strip-wrap" id="mouthStrip">
+        <img class="mouth-strip-img" src="assets/mouth-flap.png" alt="">
+      </div>
+
+      <!-- Paper note: real scanned paper PNG from Figma. Text overlays on top. -->
+      <div class="about-pop">
+        <img class="note-img" src="assets/paper-note.png" alt="">
+        <div class="note-text">
+          <p>Product Designer<br>4+ years experience<br><br>B2B SaaS<br>AI products<br>Complex systems<br><br>Making difficult things<br>feel obvious.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- RIGHT: CONTACT -->
+  <aside class="col-right">
+    <h2>Contact</h2>
+    <div class="contact-icons">
+
+      <!-- LinkedIn — real icon from Figma export -->
+      <a class="ci" href="https://www.linkedin.com/in/vkartynnik/" target="_blank">
+        <img src="images/linkedin.svg" alt="LinkedIn">
+        <span class="ci-lbl">LinkedIn</span>
+      </a>
+
+      <a class="ci" href="https://drive.google.com/file/d/1NSXYHTG0Z_doLBl61WqiePU4v_V3jGdp/view" target="_blank">
+        <img src="images/icon-resume.png" alt="Resume">
+        <span class="ci-lbl">Resume</span>
+      </a>
+
+      <a class="ci" href="mailto:viktoryiakartynnik@gmail.com">
+        <img src="images/icon-email.png" alt="Email">
+        <span class="ci-lbl">Email</span>
+      </a>
+
+    </div>
+  </aside>
+
+</div>
+<div class="backdrop" id="backdrop"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   BLINK
+   Figma spec: After delay 1200ms, Animation: INSTANT
+   → No transition. Hard swap between face-open / face-closed.
+   ═══════════════════════════════════════════════════════ */
+const faceOpen   = document.getElementById("faceOpen");
+const faceClosed = document.getElementById("faceClosed");
+
+function doBlink() {
+  // INSTANT close — remove any transition, swap immediately
+  faceOpen.style.transition   = "none";
+  faceClosed.style.transition = "none";
+  faceOpen.style.opacity   = "0";
+  faceClosed.style.opacity = "1";
+
+  // Hold closed for a natural blink duration (~120ms), then INSTANT reopen
+  setTimeout(() => {
+    faceOpen.style.transition   = "none";
+    faceClosed.style.transition = "none";
+    faceOpen.style.opacity   = "1";
+    faceClosed.style.opacity = "0";
+  }, 120);
+}
+
+function scheduleBlink() {
+  // Figma: 1200ms base delay. Add small random variation for realism.
+  const delay = 1200 + Math.random() * 2000; // 1.2s – 3.2s
+  setTimeout(() => {
+    doBlink();
+    // 18% chance of a double-blink (natural eye behaviour)
+    if (Math.random() < 0.18) {
+      setTimeout(doBlink, 340);
+    }
+    scheduleBlink();
+  }, delay);
+}
+// First blink after initial 1200ms (as per Figma)
+setTimeout(scheduleBlink, 1200);
+
+
+/* ═══════════════════════════════════════════════════════
+   FACE HOVER — paper cut-out mouth + hand-placed note
+   Mouth opens immediately (paper flap drops).
+   Note appears 120ms later — slight delay = "suddenly speaking".
+   On exit: note fades first, then mouth closes calmly.
+   ═══════════════════════════════════════════════════════ */
+const faceHoverZone  = document.querySelector('.face-hover-zone');
+const mouthStrip     = document.getElementById('mouthStrip');
+const aboutPop       = document.querySelector('.about-pop');
+
+let noteTimer  = null;
+let closeTimer = null;
+
+faceHoverZone.addEventListener('mouseenter', () => {
+  clearTimeout(closeTimer);
+  // Flap opens immediately
+  mouthStrip.classList.add('open');
+  // Note slides in 130ms later — "the portrait quietly starts speaking"
+  clearTimeout(noteTimer);
+  noteTimer = setTimeout(() => aboutPop.classList.add('visible'), 130);
+});
+
+faceHoverZone.addEventListener('mouseleave', () => {
+  clearTimeout(noteTimer);
+  // Note retreats first
+  aboutPop.classList.remove('visible');
+  // Flap closes after note has started fading
+  closeTimer = setTimeout(() => mouthStrip.classList.remove('open'), 200);
+});
+
+/* ── TOUCH: tap face to open/close mouth + note (mobile) ── */
+let touchActive = false;
+faceHoverZone.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  if (!touchActive) {
+    touchActive = true;
+    clearTimeout(closeTimer);
+    mouthStrip.classList.add('open');
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(() => aboutPop.classList.add('visible'), 130);
+  } else {
+    touchActive = false;
+    clearTimeout(noteTimer);
+    aboutPop.classList.remove('visible');
+    closeTimer = setTimeout(() => mouthStrip.classList.remove('open'), 200);
+  }
+}, { passive: false });
+
+document.addEventListener('touchstart', (e) => {
+  if (touchActive && !faceHoverZone.contains(e.target)) {
+    touchActive = false;
+    clearTimeout(noteTimer);
+    aboutPop.classList.remove('visible');
+    closeTimer = setTimeout(() => mouthStrip.classList.remove('open'), 200);
+  }
+}, { passive: true });
+
+
+/* ═══════════════════════════════════════════════════════
+   RADIAL "OTHER" MENU
+   ═══════════════════════════════════════════════════════ */
+const otherFolder = document.getElementById("otherFolder");
+const radialMenu  = document.getElementById("radialMenu");
+const backdrop    = document.getElementById("backdrop");
+let menuOpen = false;
+let snapTimer = null;
+
+function openMenu() {
+  if (menuOpen) return;
+  menuOpen = true;
+  radialMenu.classList.remove("snapping");
+  void radialMenu.offsetHeight; // force reflow
+  radialMenu.classList.add("open");
+  backdrop.classList.add("on");
+}
+
+function closeMenu() {
+  if (!menuOpen) return;
+  menuOpen = false;
+  radialMenu.classList.remove("open");
+  radialMenu.classList.add("snapping");
+  backdrop.classList.remove("on");
+  clearTimeout(snapTimer);
+  snapTimer = setTimeout(() => radialMenu.classList.remove("snapping"), 250);
+}
+
+otherFolder.addEventListener("click", e => {
+  e.stopPropagation();
+  menuOpen ? closeMenu() : openMenu();
+});
+
+backdrop.addEventListener("click", closeMenu);
+
+document.addEventListener("click", e => {
+  if (menuOpen && !otherFolder.contains(e.target)) closeMenu();
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeMenu();
+});
+
+// Stop radial item clicks from bubbling to otherFolder
+radialMenu.addEventListener("click", e => e.stopPropagation());
+</script>
+</body>
+</html>
