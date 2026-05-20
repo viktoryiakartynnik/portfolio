@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viktoryia Kartynnik — Resume (1-page)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --name:    #35353b;   /* name / charcoal headings */
+  --body:    #0f1f38;   /* body text, bullets, company names */
+  --link:    #3b4bf3;   /* hyperlinks */
+  --muted:   #74767f;   /* section labels, dates */
+  --light:   #9098a3;   /* job meta, italic */
+  --rule:    #ebebec;   /* divider lines */
+  --bg:      #ffffff;
+}
+
+@page { size: letter; margin: 0.62in 0.78in; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 9.6pt;
+  line-height: 1.48;
+  color: var(--body);
+  background: var(--bg);
+}
+
+/* ─── SCREEN WRAPPER ─── */
+@media screen {
+  body { background: #eceae6; padding: 40px 20px 60px; }
+  .page {
+    background: var(--bg);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    padding: 0.62in 0.78in;
+    box-shadow: 0 4px 48px rgba(0,0,0,0.13);
+  }
+  .toolbar {
+    width: 8.5in;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toolbar-label { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+  .btn-print {
+    background: var(--body); color: #fff; border: none;
+    padding: 9px 22px; border-radius: 6px; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.03em; transition: background 0.15s;
+  }
+  .btn-print:hover { background: var(--name); }
+}
+@media print {
+  .toolbar { display: none; }
+  .page { padding: 0; }
+}
+
+/* ─── HEADER ─── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10pt;
+  margin-bottom: 11pt;
+  border-bottom: 1.2pt solid var(--name);
+}
+.header-left h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 27pt;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--name);
+  margin-bottom: 3pt;
+}
+.header-left .role {
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.header-right {
+  text-align: right;
+  font-size: 8.4pt;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.header-right a { color: var(--link); text-decoration: none; }
+.header-right a:hover { text-decoration: underline; }
+.case-studies { font-size: 7.5pt; margin-top: 3pt; color: var(--muted); }
+.case-studies a { color: var(--link); text-decoration: none; }
+.case-studies a:hover { text-decoration: underline; }
+.sole { font-weight: 600; color: var(--body); }
+
+/*
+  PROXIMITY HIERARCHY (Nielsen Norman)
+  Level 1 — within a job block:  1–2pt   (tightest — same card)
+  Level 2 — between jobs:       10pt    (medium  — different cards)
+  Level 3 — between sections:   16pt    (largest — different topics)
+*/
+
+/* ─── SECTION ─── */
+.section { margin-bottom: 16pt; }   /* L3 — between major sections */
+.section:last-child { margin-bottom: 0; }
+
+.section-label {
+  font-size: 6.8pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 3.5pt;
+  margin-bottom: 8pt;              /* label → first content: slightly generous */
+  border-bottom: 0.5pt solid var(--rule);
+}
+
+/* ─── ABOUT ─── */
+.about p {
+  font-size: 9.4pt;
+  line-height: 1.56;
+  color: var(--body);
+}
+
+/* ─── JOB ─── */
+.job { margin-bottom: 10pt; }      /* L2 — between jobs */
+.job:last-of-type { margin-bottom: 0; }
+
+.job-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1pt;              /* L1 — company → title */
+}
+.job-company {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--body);
+}
+.job-date {
+  font-size: 8.2pt;
+  color: var(--light);
+  white-space: nowrap;
+}
+.job-title {
+  font-size: 9.2pt;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 1pt;              /* L1 — title → meta */
+}
+.job-meta {
+  font-size: 8.2pt;
+  color: var(--light);
+  font-style: italic;
+  margin-bottom: 3pt;              /* L1 — meta → bullets (was 4.5, reduced) */
+}
+.job ul { list-style: none; padding-left: 0; }
+.job ul li {
+  position: relative;
+  padding-left: 11pt;
+  font-size: 9.2pt;
+  line-height: 1.5;
+  color: var(--body);
+  margin-bottom: 1.5pt;           /* L1 — between bullets */
+}
+.job ul li:last-child { margin-bottom: 0; }
+.job ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--light);
+  font-weight: 300;
+}
+
+/* ─── CAREER BREAK ─── */
+.career-break {
+  font-size: 8.8pt;
+  color: var(--light);
+  font-style: italic;
+  margin-top: 10pt;               /* L2 — same gap as between jobs */
+  margin-bottom: 5pt;
+}
+
+/* ─── PRIOR ─── */
+.prior {
+  font-size: 8.8pt;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.prior strong { color: var(--body); font-weight: 600; }
+
+/* ─── EDUCATION ─── */
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 9.4pt;
+}
+.edu-degree { font-weight: 500; color: var(--body); }
+.edu-school { color: var(--muted); font-size: 8.8pt; }
+
+/* ─── SKILLS ─── */
+.skill-row {
+  font-size: 8.8pt;
+  line-height: 1.6;
+  color: var(--body);
+  margin-bottom: 3pt;
+}
+.skill-row:last-child { margin-bottom: 0; }
+.skill-label { font-weight: 600; color: var(--name); }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="toolbar-label">Version A — 1 page</span>
+  <button class="btn-print" onclick="window.print()">Print / Save as PDF →</button>
+</div>
+
+<div class="page">
+
+  <header class="header">
+    <div class="header-left">
+      <h1>Viktoryia Kartynnik</h1>
+      <div class="role">Product Designer</div>
+    </div>
+    <div class="header-right">
+      <a href="https://viktoryia-kartynnik.com/?utm_source=resume&utm_medium=pdf&utm_campaign=1page">viktoryia-kartynnik.com</a><br>
+      <a href="mailto:viktoryiakartynnik@gmail.com">viktoryiakartynnik@gmail.com</a><br>
+      <a href="https://linkedin.com/in/vkartynnik">linkedin.com/in/vkartynnik</a><br>
+      +1 (786) 301-3583 &nbsp;·&nbsp; Chicago, IL (open to relocation)
+      <div class="case-studies"><a href="https://viktoryia-kartynnik.com/projects/ai-reports.html?utm_source=resume&utm_medium=pdf&utm_campaign=1page">AI Reports</a> &nbsp;·&nbsp; <a href="https://viktoryia-kartynnik.com/projects/global-redesign.html?utm_source=resume&utm_medium=pdf&utm_campaign=1page">Global Redesign</a> &nbsp;·&nbsp; <a href="https://viktoryia-kartynnik.com/projects/b2b-billing.html?utm_source=resume&utm_medium=pdf&utm_campaign=1page">B2B Billing</a></div>
+    </div>
+  </header>
+
+  <section class="section about">
+    <div class="section-label">About</div>
+    <p>Specialist in making complex B2B SaaS products feel simple — AI-generated reports, multi-variable dashboards, and 800K-user platform redesigns. 4+ years as sole or lead designer across web, iOS, and Android; from user research and wireframing through design systems and developer handoff.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Experience</div>
+
+    <div class="job">
+      <div class="job-top">
+        <span class="job-company">SmallTalk2Me</span>
+        <span class="job-date">Oct 2024 – Present</span>
+      </div>
+      <div class="job-title">Product Designer · Contract · Remote</div>
+      <div class="job-meta">AI-powered English learning · B2B/B2C · 2.5M+ learners</div>
+      <ul>
+        <li>Led end-to-end UX/UI in Figma for AI Reports system — distilled 25 speech parameters into readable dashboards for 2.5M learners and HR stakeholders; shipped across B2B and B2C segments</li>
+        <li>Designed monetization flows in cross-functional agile team; drove +15% lift in user conversion</li>
+        <li>Designed B2C giveaway campaign — visual system, landing page, and UGC tracking; generated 10K+ submissions and +20% lift in trial sign-ups</li>
+        <li>Built and maintained scalable Figma design system covering responsive web and mobile</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <span class="job-company">GanttPRO</span>
+        <span class="job-date">Jun 2021 – Sep 2023</span>
+      </div>
+      <div class="job-title">Product Designer · Full-time &nbsp;·&nbsp; <span class="sole">Sole designer</span></div>
+      <div class="job-meta">SaaS project management · 800K+ registered teams</div>
+      <ul>
+        <li>Led 2-year full-platform redesign in Figma (web + iOS + Android) as sole designer; drove +25% mobile downloads and +20% user satisfaction</li>
+        <li>Designed iOS/Android app from scratch in Figma — developed personas, documented 40+ edge cases, built company's first mobile design system, led full developer handoff</li>
+        <li>Reduced bounce rate 8% through iterative wireframing, prototyping, and usability testing across 800K+ users; audited 5 competitors, tested 3 directions before committing</li>
+        <li>Collaborated with product and engineering across agile sprints; contributed to +20% improvement in user satisfaction scores</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <span class="job-company">Freelance</span>
+        <span class="job-date">Jan 2021 – Sep 2021</span>
+      </div>
+      <div class="job-title">UX/UI Designer · Self-employed</div>
+      <ul>
+        <li>Delivered end-to-end responsive web and mobile design; boosted engagement by 20% via A/B testing and increased retention by 15% through usability-driven iterations</li>
+      </ul>
+    </div>
+
+    <div class="career-break">Career Break — Relocation from Europe to United States · Oct 2023 – Nov 2024</div>
+
+    <div class="prior">
+      <strong>Prior:</strong> &nbsp;Co-Founder &amp; Ops Director · Bonito Model School &nbsp;·&nbsp; Lead Project Manager · Sette Studio &nbsp;·&nbsp; 2016–2020
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Education</div>
+    <div class="edu-row">
+      <span class="edu-degree">B.S. in Business and Management</span>
+      <span class="edu-school">Brest State Technical University</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Skills</div>
+    <div class="skill-row">
+      <span class="skill-label">Process — </span>Product Design · UX/UI · End-to-End Design · Wireframing · Prototyping · User Research · Usability Testing · Design Systems · Information Architecture · Persona Development · Journey Mapping · A/B Testing · WCAG · Agile/Scrum · Developer Handoff · Cross-Functional Collaboration
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">Tools — </span>Figma · FigJam · Miro · Maze · Amplitude · Hotjar · Google Analytics · Jira · Confluence · Zeplin · Sketch · Protopie
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
