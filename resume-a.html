@@ -19,7 +19,7 @@
   --bg:      #ffffff;
 }
 
-@page { size: letter; margin: 0.62in 0.78in; }
+@page { size: letter; margin: 0; }
 
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
@@ -53,17 +53,20 @@ body {
     padding: 9px 22px; border-radius: 6px; cursor: pointer;
     font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
     letter-spacing: 0.03em; transition: background 0.15s;
+    text-decoration: none; display: inline-block;
   }
   .btn-print:hover { background: var(--name); }
 }
 @media print {
   .toolbar { display: none; }
-  .page { padding: 0; }
-  .section { margin-bottom: 11pt; }
-  .section-label { margin-bottom: 6pt; }
-  .job { margin-bottom: 8pt; }
-  .about p { font-size: 9.1pt; line-height: 1.48; }
-  .career-break { margin-top: 7pt; margin-bottom: 3pt; }
+  .page { padding: 0.42in 0.65in; }
+  body { font-size: 9.2pt; line-height: 1.45; }
+  .section { margin-bottom: 10pt; }
+  .section-label { margin-bottom: 5pt; }
+  .job { margin-bottom: 7pt; }
+  .about p { font-size: 9pt; line-height: 1.46; }
+  .career-break { margin-top: 6pt; margin-bottom: 3pt; }
+  .skill-row { font-size: 8.4pt; line-height: 1.5; margin-bottom: 1.5pt; }
 }
 
 /* ─── HEADER ─── */
@@ -224,7 +227,7 @@ body {
 <body>
 
 <div class="toolbar">
-  <button class="btn-print" onclick="window.print()">Save as PDF →</button>
+  <a class="btn-print" href="/Viktoryia-Kartynnik-Resume.pdf" download="Viktoryia-Kartynnik-Resume.pdf">Download PDF →</a>
 </div>
 
 <div class="page">
@@ -313,7 +316,7 @@ body {
       <span class="skill-label">Process — </span>Product Design · UX/UI · End-to-End Design · Wireframing · Prototyping · User Research · Usability Testing · Design Systems · Information Architecture · Persona Development · Journey Mapping · A/B Testing · WCAG · Agile/Scrum · Developer Handoff · Cross-Functional Collaboration
     </div>
     <div class="skill-row">
-      <span class="skill-label">Tools — </span>Figma · FigJam · Miro · Maze · Amplitude · Hotjar · Google Analytics · Jira · Confluence · Zeplin · Sketch · Protopie
+      <span class="skill-label">Tools — </span>Figma · FigJam · Miro · Maze · Amplitude · Hotjar · Google Analytics · Jira · Confluence · Zeplin · ProtoPie
     </div>
   </section>
 
