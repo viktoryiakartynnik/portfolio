@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Project Team Management — Viktoryia Kartynnik</title>
-<meta name="description" content="Designing team member cards for GanttPRO to give visibility into who's working on what.">
+<meta name="description" content="Rebuilding GanttPRO's Team & Resources section — managing people, roles, rights, and cost across every project.">
 <link rel="stylesheet" href="../css/project.css?v=5">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY1KEPDGD8"></script>
@@ -31,7 +31,7 @@
 <header class="hero">
   <span class="hero-tag">GanttPRO</span>
   <h1>Project Team Management</h1>
-  <p class="hero-sub">Redesigning the Team and Resources section so project managers could see — at a glance — who's on the project, what they're doing, and how stretched they are.</p>
+  <p class="hero-sub">Rebuilding the section where managers run their whole team across every project — roles, rights, cost, and groups — after the old flat list had outgrown itself.</p>
 </header>
 <div class="meta-strip">
   <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">UX/UI Designer</span></div>
@@ -42,57 +42,52 @@
 <div class="content">
   <div class="section">
     <div class="section-num">01 — Overview</div>
-    <h2>Making team visibility a first-class feature</h2>
-    <p>GanttPRO's Team and Resources section showed a list of team members — names, roles, and a count of assigned tasks. That was it. Project managers had no way to understand workload distribution, no way to see which projects a person was juggling, and no personal context for each team member beyond their job title.</p>
-    <p>The result: managers were over-assigning some people and underusing others, not from neglect but from lack of visibility. The redesign aimed to fix this by turning a flat list into a genuinely useful team management view.</p>
+    <h2>When a team list becomes an operating system</h2>
+    <p>GanttPRO's Team &amp; Resources section is where an account owner runs their whole team across every project: each person's account role, their rights on each project, what they cost, and the groups they belong to. It also manages "virtual resources" — non-user placeholders like a contractor slot, a server, or equipment that carry tasks and budget.</p>
+    <p>It had quietly outgrown its own design. Real people and virtual resources all lived together in one endless, flat, scrolling list. Answering a basic question — which projects is this person on, what's their role, what do they cost — meant hunting. As accounts grew to dozens of projects and people, the list stopped being manageable.</p>
   </div>
 <div class="img-frame">
-  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/b94f6cab-9e9c-43f2-9a85-03fcb5e84bce/ghghg/w=1920,quality=90,fit=scale-down" alt="Team member card — active projects and workload" style="width:100%;height:auto;display:block;border-radius:8px;">
-  <div class="img-caption">Team member card — active projects and workload</div>
+  <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/b94f6cab-9e9c-43f2-9a85-03fcb5e84bce/ghghg/w=1920,quality=90,fit=scale-down" alt="Member card — every project a person is on, with its cost and project rights" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Member card — every project a person is on, with its cost and project rights</div>
 </div>
 <div class="img-frame">
-  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/727f0e61-3fd2-4a62-ab49-5c251147ad6a/Screenshot_2024-12-30_at_4.41.35_PM/w=1920,quality=90,fit=scale-down" alt="Resource workload — capacity bar view" style="width:100%;height:auto;display:block;border-radius:8px;">
-  <div class="img-caption">Resource workload — capacity bar view</div>
+  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/727f0e61-3fd2-4a62-ab49-5c251147ad6a/Screenshot_2024-12-30_at_4.41.35_PM/w=1920,quality=90,fit=scale-down" alt="Research and exploration — mapping every page of the section" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Research &amp; exploration — mapping every page of the section</div>
 </div>
 <div class="img-frame">
-  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/a0d9fbe6-fbe1-48ac-90a6-0bf7f28ec774/Screenshot_2024-12-30_at_4.44.25_PM/w=1920,quality=90,fit=scale-down" alt="Concept exploration — card format variations" style="width:100%;height:auto;display:block;border-radius:8px;">
-  <div class="img-caption">Concept exploration — card format variations tested with project managers</div>
-</div>
-
-<div class="img-frame">
-  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/33c46ece-f61e-4140-b95a-096bdf0328d1/Screenshot_2024-12-30_at_4.56.05_PM_1/w=1920,quality=90,fit=scale-down" alt="Information hierarchy — member card anatomy" style="width:100%;height:auto;display:block;border-radius:8px;">
-  <div class="img-caption">Card anatomy — name, role, active projects, task count, workload bar</div>
+  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/a0d9fbe6-fbe1-48ac-90a6-0bf7f28ec774/Screenshot_2024-12-30_at_4.44.25_PM/w=1920,quality=90,fit=scale-down" alt="Requirements mapping — what a manager needs to do on each page" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Requirements mapping — what a manager needs to do on each page of the section</div>
 </div>
 
   <div class="section">
     <div class="section-num">02 — Process &amp; Solution</div>
-    <h2>From list to cards with actual meaning</h2>
-    <p>Competitor research (Asana, Monday, Teamwork) showed that the most useful team views combined personal identity (name, avatar, role) with workload context (active tasks, task types, cross-project assignments) in a card format rather than a table row.</p>
+    <h2>From one flat list to a system you can manage</h2>
+    <p>I treated it as a system, not a screen — mapping every surface it touched (the account-wide team, the team inside a project, account roles, project rights, and groups) and defining what each has to let a manager actually do. I ran several rounds of interviews with users and project managers, walking them through concepts and iterating on their feedback.</p>
     <div class="steps">
-      <div class="step"><span class="step-num">1</span><div class="step-body"><strong>Concept exploration</strong><p>Sketched 4 card formats varying in information density. Tested 2 directions with a focus group of 6 project managers. The selected direction surfaced active projects prominently rather than raw task counts.</p></div></div>
-      <div class="step"><span class="step-num">2</span><div class="step-body"><strong>Information hierarchy</strong><p>Each card shows: member name, role, active project list (with color coding matching the project), task count per project, and an availability indicator (workload percentage). Overflow projects are summarized with a "+N more" indicator.</p></div></div>
-      <div class="step"><span class="step-num">3</span><div class="step-body"><strong>Resource availability tracking</strong><p>Added a capacity bar showing each member's allocated workload as a percentage of their available hours. Yellow at 80%, red at 100% — letting managers identify overallocation before it becomes a bloat problem.</p></div></div>
+      <div class="step"><span class="step-num">1</span><div class="step-body"><strong>Separate people from resources</strong><p>A person logs in and works; a virtual resource is just something you assign tasks and cost to. Conflating them in one list was the root of the mess — so I split them into two clearly labelled groups.</p></div></div>
+      <div class="step"><span class="step-num">2</span><div class="step-body"><strong>A card per person</strong><p>Each person became an expandable card: every project they're on, each with its cost and project rights, plus their account role, groups, and working calendar — the whole picture in one place instead of scattered across the app.</p></div></div>
+      <div class="step"><span class="step-num">3</span><div class="step-body"><strong>Roles and rights, made legible</strong><p>I structured the two-level permission model — account roles (Owner, Admin, Member) and per-project rights (Editor, Advanced Member, Commenter, and more) — so managers change the right control at the right level without guessing.</p></div></div>
     </div>
   </div>
   <div class="section">
     <div class="section-num">03 — Outcome</div>
-    <h2>Team context, not just team lists</h2>
-    <p>The redesigned Team Management section launched as part of GanttPRO's 2022 feature release. Post-launch monitoring showed strong adoption of the new card view over the legacy list. Project managers reported the workload bar as the single most useful new element — it surfaced resourcing problems they hadn't had the visibility to catch before.</p>
+    <h2>A section teams can grow with</h2>
+    <p>The redesigned Team &amp; Resources shipped in GanttPRO's 2022 release, with a clearer home in settings and expanded management. It became the standard way accounts handle their people, roles, rights, and cost across projects — and untangling real people from virtual resources removed a long-standing source of confusion.</p>
   </div>
 
 <div class="img-frame">
-  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/d440914b-7bd2-4b9c-ad54-3a40c65a4eaf/11/w=1920,quality=90,fit=scale-down" alt="Final team management view — member cards with workload" style="width:100%;height:auto;display:block;border-radius:8px;">
-  <div class="img-caption">Final design — team cards with project assignments and workload bars</div>
+  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/d440914b-7bd2-4b9c-ad54-3a40c65a4eaf/11/w=1920,quality=90,fit=scale-down" alt="Final design — the redesigned Team and Resources section" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final design — the redesigned Team &amp; Resources section</div>
 </div>
 
 <div class="img-frame">
-  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/1d0f65c3-7e6d-4f30-92fe-0f57991b5c02/11111/w=1920,quality=90,fit=scale-down" alt="Workload detail — overallocation states and capacity indicators" style="width:100%;height:auto;display:block;border-radius:8px;">
-  <div class="img-caption">Workload detail — overallocation warnings and capacity states</div>
+  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/1d0f65c3-7e6d-4f30-92fe-0f57991b5c02/11111/w=1920,quality=90,fit=scale-down" alt="Final design — expandable member card with role, rights and cost" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final design — expandable member card with role, rights and cost</div>
 </div>
 
 <div class="img-frame">
-  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/4121dfc8-c131-438b-9db0-82eae3242f6c/1111/w=1920,quality=90,fit=scale-down" alt="Resource management — cross-project availability tracking" style="width:100%;height:auto;display:block;border-radius:8px;">
-  <div class="img-caption">Cross-project resource view — availability tracking at a glance</div>
+  <img loading="lazy" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/4121dfc8-c131-438b-9db0-82eae3242f6c/1111/w=1920,quality=90,fit=scale-down" alt="Final design — people and virtual resources, cleanly separated" style="width:100%;height:auto;display:block;border-radius:8px;">
+  <div class="img-caption">Final design — people and virtual resources, cleanly separated</div>
 </div>
 
 </div>
