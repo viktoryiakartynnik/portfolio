@@ -3,3 +3,7 @@
 serve.py
 portfolio_v5_1.html
 presentation/
+
+# private — never publish
+interviews/
+.broken-img-backup/
